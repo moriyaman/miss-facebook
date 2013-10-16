@@ -46,5 +46,5 @@ end
 
 gem 'rails_12factor', group: :production
 gem 'slim-rails'
-gem "anjlab-bootstrap-rails", "~> 3.0.0.3"
+gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
 
