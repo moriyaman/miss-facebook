@@ -164,9 +164,12 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql2 (= 0.3.13)
+<<<<<<< HEAD
+=======
   omniauth
   omniauth-facebook (= 1.4.0)
   paperclip
+>>>>>>> 50f2eb0a2db15d1fb84f59cf65aa3a0c7308810e
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0)
