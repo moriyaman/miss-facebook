@@ -5,7 +5,6 @@
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-
   .field
     = f.label :nick_name
     = f.text_field :nick_name
@@ -13,18 +12,10 @@
     = f.label :country_id
     = f.number_field :country_id
   .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :gender
-    = f.number_field :gender
-  .field
     = f.label :occupation_id
     = f.number_field :occupation_id
-  .field
-    = f.label :mail
-    = f.text_field :mail
-  .field
-    = f.label :uid
-    = f.number_field :uid
+  .field  
+    = f.fields_for :user_photos, @user.user_photos do |user_photo|
+      = user_photo.label :avator
+      = user_photo.file_field :avatar
   .actions = f.submit 'Save'

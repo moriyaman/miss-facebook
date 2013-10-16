@@ -1,6 +1,12 @@
 MissFacebook::Application.routes.draw do
   resources :users
-
+ 
+  root :to => "tops#index"
+ 
+  #for omniauth 
+  match 'auth/:provider/callback' => 'sessions#login', :via => :get
+  match '/logout' => 'sessions#logout', :as => :logout, :via => :post
+  #match ':controller(/:action(/:id))(.:format)', :via => :get 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,4 +61,5 @@ MissFacebook::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

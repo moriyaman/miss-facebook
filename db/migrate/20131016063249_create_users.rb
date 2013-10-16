@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :country_id
       t.string :address
       t.date :birthday
-      t.integer :gender
+      t.integer :gender_id
       t.integer :occupation_id
       t.string :mail
       t.integer :uid, :limit => 8
@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
     add_index :users, :country_id
-    add_index :users, :gender
+    add_index :users, :gender_id
     add_index :users, :occupation_id
     add_index :users, :uid
     add_index :users, :friend_allow_flg

@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
+gem 'figaro'
 
 gem 'paperclip'
 

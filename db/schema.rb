@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131016063249) do
     t.integer  "country_id"
     t.string   "address"
     t.date     "birthday"
-    t.integer  "gender"
+    t.integer  "gender_id"
     t.integer  "occupation_id"
     t.string   "mail"
     t.integer  "uid",               limit: 8
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20131016063249) do
   add_index "users", ["closed_flg"], name: "index_users_on_closed_flg", using: :btree
   add_index "users", ["country_id"], name: "index_users_on_country_id", using: :btree
   add_index "users", ["friend_allow_flg"], name: "index_users_on_friend_allow_flg", using: :btree
-  add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
+  add_index "users", ["gender_id"], name: "index_users_on_gender_id", using: :btree
   add_index "users", ["oauth_expires_at"], name: "index_users_on_oauth_expires_at", using: :btree
   add_index "users", ["occupation_id"], name: "index_users_on_occupation_id", using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
