@@ -1,3 +1,19 @@
-// Place all the styles related to the tops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.facebook-login {
+  font: {
+    size: 2.2em;
+  }
+}
+.facebook-login-button {
+  background: url(/assets/sprite.png) no-repeat 0 0;
+  display: inline-block;
+  height: 0;
+  margin: 20px 0 120px 20px;
+  overflow: hidden;
+  padding: 196px 0 0 0;
+  vertical-align: -208px;
+  width: 256px;
+  
+  &:hover {
+    background-position: -256px 0;
+  }
+}

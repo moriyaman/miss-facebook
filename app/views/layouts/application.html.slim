@@ -1,0 +1,23 @@
+doctype html
+html lang="ja"
+  head
+    title beatiful graph
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    link href='http://fonts.googleapis.com/css?family=Montaga' rel='stylesheet' type='text/css'
+
+  body
+    
+    header
+      #logo beatiful graph
+
+    .container
+      = yield
+
+    footer
+      #copyright
+        small &copy; Copyright Forest Mountain & Navy Valley All Right Reserved.
+
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+

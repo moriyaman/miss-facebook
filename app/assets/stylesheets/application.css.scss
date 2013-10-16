@@ -13,3 +13,34 @@
  */
 
 @import "twitter/bootstrap";
+
+// variable
+$border_color: #d95e5e;
+$logo_font: 'Montaga', serif;
+
+// mixin
+@mixin mb($margin:40) {margin-bottom: $margin + px;}
+@mixin mt($margin:40) {margin-top: $margin + px;}
+
+// parts
+.mb20 {@include mb(20);}
+.mb40 {@include mb();}
+.mt40 {@include mt();}
+
+// selectors
+header {
+  border-bottom: 1px solid $border_color;
+  padding: 10px 20px;
+}
+#logo {
+  font: {
+    family: $logo_font;
+    size: 1.8em;
+  }
+}
+footer {
+  padding: 10px 0;
+}
+#copyright {
+  text-align: center;
+}
