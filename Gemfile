@@ -43,3 +43,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rails_12factor', group: :production
+gem 'slim-rails'
+gem "anjlab-bootstrap-rails", "~> 3.0.0.3"
+
