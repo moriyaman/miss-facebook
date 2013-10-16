@@ -11,20 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016042854) do
+ActiveRecord::Schema.define(version: 20131016063249) do
+
+  create_table "user_friends", force: true do |t|
+    t.integer  "user_uid"
+    t.integer  "friend_uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_friends", ["friend_uid"], name: "index_user_friends_on_friend_uid", using: :btree
+  add_index "user_friends", ["user_uid"], name: "index_user_friends_on_user_uid", using: :btree
+
+  create_table "user_photos", force: true do |t|
+    t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_photos", ["user_id"], name: "index_user_photos_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nick_name"
     t.integer  "country_id"
     t.string   "address"
-    t.integer  "age"
-    t.integer  "sex"
+    t.date     "birthday"
+    t.integer  "gender"
     t.integer  "occupation_id"
-    t.integer  "mail"
-    t.integer  "uid",           limit: 8
+    t.string   "mail"
+    t.integer  "uid",               limit: 8
+    t.boolean  "friend_allow_flg",                   default: false
+    t.boolean  "closed_flg",                         default: false
+    t.text     "self_introduction", limit: 16777215
     t.string   "access_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["closed_flg"], name: "index_users_on_closed_flg", using: :btree
+  add_index "users", ["country_id"], name: "index_users_on_country_id", using: :btree
+  add_index "users", ["friend_allow_flg"], name: "index_users_on_friend_allow_flg", using: :btree
+  add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
+  add_index "users", ["oauth_expires_at"], name: "index_users_on_oauth_expires_at", using: :btree
+  add_index "users", ["occupation_id"], name: "index_users_on_occupation_id", using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
 end
