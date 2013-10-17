@@ -1,7 +1,7 @@
 class ChoiceController < ApplicationController
 
   def index
-    @photo_1 = UserPhoto.where(id: 9).first
-    @photo_2 = UserPhoto.where(id: 11).last
+    @stay_user = @login_user.user_likes.exists? ? @login_user.user_likes.last.to_user : User.has_photo.first
+    @new_user =  User.has_photo.last
   end
 end

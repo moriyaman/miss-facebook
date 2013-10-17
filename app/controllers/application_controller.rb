@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user
 
   def authenticate_user
-    #@login_user = User.find(session[:user_id]) if session[:user_id]
+    @login_user = User.find(session[:user_id]) if session[:user_id]
   end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016163610) do
+ActiveRecord::Schema.define(version: 20131017030001) do
 
   create_table "user_friends", force: true do |t|
     t.integer  "user_uid"
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 20131016163610) do
 
   create_table "user_photos", force: true do |t|
     t.integer  "user_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,16 +61,12 @@ ActiveRecord::Schema.define(version: 20131016163610) do
     t.integer  "gender_id"
     t.integer  "occupation_id"
     t.string   "mail"
-    t.integer  "uid",                 limit: 8
-    t.boolean  "friend_allow_flg",                     default: false
-    t.boolean  "closed_flg",                           default: false
-    t.text     "self_introduction",   limit: 16777215
+    t.integer  "uid",               limit: 8
+    t.boolean  "friend_allow_flg",                   default: false
+    t.boolean  "closed_flg",                         default: false
+    t.text     "self_introduction", limit: 16777215
     t.string   "access_token"
     t.datetime "oauth_expires_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

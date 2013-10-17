@@ -1,13 +1,15 @@
 class UserPhoto < ActiveRecord::Base
-  
-  belongs_to :user
-  
-  scope :have_photo, where('avatar_file_name is not null') 
  
-  has_attached_file :avatar, {
+  belongs_to :user
+
+  has_attached_file :photo, {
     :styles => {
-       :medium => ['100x100#', :png], 
-       :large => ['1000x1000>', :png]
+       :thumb => ['50x50#', :png], 
+       :large => ['500x500#', :png]
+    },
+    :convert_options => {
+      :thumb => "-gravity Center -crop 50x50+0+0",
+      :large => "-gravity Center -crop 500x500+0+0",
     }
   }
 

@@ -14,7 +14,6 @@ class CreateUsers < ActiveRecord::Migration
       t.text :self_introduction, :limit => 64.kilobytes + 1
       t.string :access_token
       t.datetime :oauth_expires_at
-      t.has_attached_file :avatar
       t.timestamps
     end
     add_index :users, :country_id
