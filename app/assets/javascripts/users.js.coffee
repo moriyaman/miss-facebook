@@ -7,6 +7,7 @@
 $ ->
   $("#user_user_photo_attributes_photo").change () ->
     return  unless this.files.length # ファイル未選択
+    $('#preview_field').html ""
     file = this.files[0]
     return  unless /^image\/(png|jpeg|gif)$/.test(file.type) # typeプロパティでMIMEタイプを参照
     img = document.createElement("img")
@@ -17,6 +18,4 @@ $ ->
 
     fr.readAsDataURL file # 画像読み込み
   
-    # 画像名・MIMEタイプ・ファイルサイズ
-    document.getElementById("preview_field").innerHTML = "file name: " + file.name + "<br />" + "file type: " + file.type + "<br />" + "file size: " + file.size + "<br />"
 

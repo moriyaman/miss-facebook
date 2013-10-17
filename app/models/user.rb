@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   scope :uid_is, ->uid{where(uid: uid)}
   scope :has_photo, joins(:user_photo).where('photo_file_name is not null') 
+
+  def man?
+    return self.gender_id == MAN ? true : false
+  end
   
   def gender
     return self.gender_id == MAN ? 'MAN' : 'WOMAN'
