@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include UserRank
 
   has_many :user_likes
   has_one :user_photo
@@ -9,6 +10,7 @@ class User < ActiveRecord::Base
 
   scope :uid_is, ->uid{where(uid: uid)}
   scope :has_photo, joins(:user_photo).where('photo_file_name is not null') 
+  scope :women, where(gender_id: WOMAN)
 
   def man?
     return self.gender_id == MAN ? true : false
@@ -20,6 +22,12 @@ class User < ActiveRecord::Base
 
   def to_change_gender_id(gender)
     self.gender_id = gender == "male" ? MAN : WOMAN
+  end
+
+  def score
+    impression = UserImpression.user_id_is(self.id).size
+    likes = User.to_user_id_is.size
+    return (likes/impression).to_f
   end
 
   class << self

@@ -12,8 +12,8 @@ class ApisController < ApplicationController
 
   def change_women
     #選択されたユーザはそのまま
-    @stay_user = User.find(params[:stay_user_id])
-    @new_user = User.has_photo.sort_by{rand}.last
+    @user1 = User.women.has_photo.sort_by{rand}.first
+    @user2 = User.women.has_photo.sort_by{rand}.last
     render layout: false
   end
 end
