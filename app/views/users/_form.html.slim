@@ -1,21 +1,25 @@
 = form_for @user do |f|
   - if @user.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      p = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-  .field
+  .form-group
     = f.label :nick_name
-    = f.text_field :nick_name
-  .field
+    = f.text_field :nick_name, class:'form-control', placeholder:'beatiful graphで利用するあなたの名前'
+  .form-group
     = f.label :country_id
-    = f.number_field :country_id
-  .field
+    = f.number_field :country_id, class:'form-control', placeholder:'あなたの母国を選択してください'
+  .form-group
     = f.label :occupation_id
-    = f.number_field :occupation_id
-  .field  
+    = f.number_field :occupation_id, class:'form-control', placeholder:'あなたの職業を選択してください'
+  .form-group
     = f.fields_for :user_photos, @user.user_photos do |user_photo|
       = user_photo.label :avator
       = user_photo.file_field :avatar
-  .actions = f.submit 'Save'
+  / .form-group
+  /   = f.check_box 'test'
+  /   = f.label 'test'
+  .form-group
+    = f.submit 'あなたの好みの女性を探しに行く', class:'btn btn-primary form-control mb120'
