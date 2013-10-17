@@ -32,7 +32,9 @@ $logo_font: 'Montaga', serif;
 .mb80 {@include mb(80);}
 .mb120 {@include mb(120);}
 .mt40 {@include mt();}
+.mrp4 {@include mrp(4%);}
 .mrp6 {@include mrp(6%);}
+.mrp8 {@include mrp(8%);}
 .mrp10 {@include mrp();}
 
 // selectors
