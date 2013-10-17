@@ -1,3 +1,4 @@
+//your-rank
 .your-rank-title {
   font-size: 42px;
 }
@@ -8,6 +9,29 @@
 .your-rank-unit {
   font-size: 80px;
 }
+
+//ranking
+.user-list-image {
+  border: 3px solid #fff;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+.user-caption {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  color: #555;
+  font-size: 12px;
+  padding: 2px 0 5px;
+}
+.user-caption-name {
+  color: #333;
+  font-size: 16px;
+}
+.user-caption a.btn {
+  color: #fff;
+}
+
+//graph
 .graph-title {
   font-size: 20px;
   margin: 40px 0 20px;

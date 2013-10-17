@@ -19,27 +19,25 @@ $border_color: #d95e5e;
 $logo_font: 'Montaga', serif;
 
 // mixin
-@mixin mb($margin:40) {margin-bottom: $margin + px;}
-@mixin ml($margin:40) {margin-left: $margin + px;}
-@mixin mr($margin:40) {margin-right: $margin + px;}
-@mixin mt($margin:40) {margin-top: $margin + px;}
-@mixin mlp($margin:10%) {margin-left: $margin;}
-@mixin mrp($margin:10%) {margin-right: $margin;}
+@mixin mb($margin:40px) {margin-bottom: $margin !important;}
+@mixin ml($margin:40px) {margin-left: $margin !important;}
+@mixin mr($margin:40px) {margin-right: $margin !important;}
+@mixin mt($margin:40px) {margin-top: $margin !important;}
 
 // parts
-.mb20 {@include mb(20);}
+.mb20 {@include mb(20px);}
 .mb40 {@include mb();}
-.mb80 {@include mb(80);}
-.mb120 {@include mb(120);}
-.mt20 {@include mt(20);}
+.mb80 {@include mb(80px);}
+.mb120 {@include mb(120px);}
+.mt20 {@include mt(20px);}
 .mt40 {@include mt();}
-.mt80 {@include mt(80);}
-.mt100 {@include mt(100);}
-.mt120 {@include mt(120);}
-.mrp4 {@include mrp(4%);}
-.mrp6 {@include mrp(6%);}
-.mrp8 {@include mrp(8%);}
-.mrp10 {@include mrp();}
+.mt80 {@include mt(80px);}
+.mt100 {@include mt(100px);}
+.mt120 {@include mt(120px);}
+.mrp4 {@include mr(4%);}
+.mrp6 {@include mr(6%);}
+.mrp8 {@include mr(8%);}
+.mrp10 {@include mr(10%);}
 
 // selectors
 header {

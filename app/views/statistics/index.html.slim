@@ -1,7 +1,9 @@
 article.row.col-md-offset-1.col-md-10.mt20
   section.row
     .col-md-6
-      h1.your-rank-title あなたの総合ランク
+      h1.your-rank-title 
+        span.glyphicon.glyphicon-user
+        | &nbsp;あなたの総合ランク
       p.your-rank
         strong 146
         span.your-rank-unit &nbsp;位
@@ -19,12 +21,136 @@ article.row.col-md-offset-1.col-md-10.mt20
 
   section.row
     .col-md-12
-      h2 あなたのランキング
-  
-  section.row
+      .row
+        .col-md-12
+          h2
+            span.glyphicon.glyphicon-heart
+            | &nbsp;あなたの選んでくれた人
+      .row
+        .col-md-2
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
+        .col-md-2 
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
+        .col-md-2 
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
+        .col-md-2 
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
+        .col-md-2 
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
+        .col-md-2 
+          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | 目利き度 100
+            br
+            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
+
+  section.row.mt40
     .col-md-12
-      h2 あなたは誰に人気？
-      h3.graph-title あなたはブラジル人に人気
+      .row
+        .col-md-12
+          h2 
+            span.glyphicon.glyphicon-sort-by-order
+            | &nbsp;あなたのランキング
+      .row
+        .col-md-2
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+        .col-md-2 
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+        .col-md-2 
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+        .col-md-2 
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+        .col-md-2 
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+        .col-md-2 
+          = image_tag '/assets/sample.jpg', class:"user-list-image"
+          .text-center.user-caption
+            strong.user-caption-name Jesica
+            br 
+            | Japan
+            br
+            | Rank 100
+
+  section.row.mt40
+    .col-md-12
+      h2 
+        span.glyphicon.glyphicon-thumbs-up
+        | &nbsp;あなたは誰に人気？
+      h3.graph-title.mt20 あなたはブラジル人に人気
       .bar-graph style="width:32%;"
       .bar-graph-text ブラジル人　32%
       .bar-graph style="width:16%;"
@@ -63,8 +189,4 @@ article.row.col-md-offset-1.col-md-10.mt20
       .bar-graph-text 60代　3%
       .bar-graph.bar-graph-other style="width:10%;"
       .bar-graph-text その他　10%
-
-  section.row
-    .col-md-12
-      h2 あなたを選んでくれた人
 
