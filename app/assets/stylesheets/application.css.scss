@@ -29,6 +29,7 @@ $logo_font: 'Montaga', serif;
 .mb40 {@include mb();}
 .mb80 {@include mb(80px);}
 .mb120 {@include mb(120px);}
+.mt10 {@include mt(10px);}
 .mt20 {@include mt(20px);}
 .mt40 {@include mt();}
 .mt80 {@include mt(80px);}
@@ -40,6 +41,11 @@ $logo_font: 'Montaga', serif;
 .mrp10 {@include mr(10%);}
 
 // selectors
+#wrap {
+  min-height: 100%;
+  position: relative;
+  width: 100%;
+}
 header {
   border-bottom: 1px solid $border_color;
   padding: 10px 20px;
@@ -50,8 +56,14 @@ header {
     size: 1.8em;
   }
 }
+.container {
+  padding-bottom: 62px;
+}
 footer {
+  bottom: 0;
   padding: 10px 0;
+  position: absolute;
+  width: 100%;
 }
 #copyright {
   text-align: center;

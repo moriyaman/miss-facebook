@@ -16,11 +16,11 @@
     = f.number_field :occupation_id, class:'form-control', placeholder:'あなたの職業を選択してください'
   .form-group
     = f.fields_for :user_photo, @user.user_photo || @user.build_user_photo do |user_photo|
-       = user_photo.label :photo
-       = user_photo.file_field :photo
-  #preview_field
+      = user_photo.label :photo
+      = user_photo.file_field :photo
+      #preview_field.text-center.mt10
   / .form-group
   /   = f.check_box 'test'
   /   = f.label 'test'
   .form-group
-    = f.submit 'あなたの好みの女性を探しに行く', class:'btn btn-primary form-control mb120'
+    = f.submit 'プロフィールを保存して、あなたの好みの女性を探しに行く', class:'btn btn-primary btn-lg btn-submit mt20'
