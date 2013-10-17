@@ -5,6 +5,7 @@
 baseFunction = ->
   window.count = window.count + 1
   women = []
+  women_id = []
   $(".woman").each ->
     _self = $(this)
     user_id = $(this).attr("data-id")
@@ -15,7 +16,6 @@ baseFunction = ->
   $(".woman").click ->
     index = $(".woman").index($(this))
     woman = women[index]
-    window.correct_count = window.correct_count + 1 if $(this).hasClass("bu")
     woman.choice()
 
 refreshWomen = (stay_user_id) ->
@@ -31,22 +31,9 @@ refreshWomen = (stay_user_id) ->
     error: ->
       alert "error"
   
-choiceFinish = (score) ->
-  $.ajax
-    type: "POST"
-    data:
-      score: score
-    url: "/apis/create_score"
-    success: (data, status) ->
-      if data["result"] is true
-        location.href = "http://localhost:3000/statistics"
-
-    error: ->
-      alert "error"
 
 $ ->
   window.count = 0
-  window.correct_count = 0
   baseFunction()
 
 #下記は必要無いはず
@@ -70,7 +57,7 @@ Woman:: =
             $ success_func
           else
             if window.count >= 5
-              choiceFinish(window.correct_count)
+              location.href = "http://localhost:3000/statistics"
             else
               refreshWomen to_user_id 
         else

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_one :user_photo
   accepts_nested_attributes_for :user_photo
   
+  attr_accessor :beyond_flg
+  
   MAN = 1
   WOMAN = 2
 
@@ -23,6 +25,14 @@ class User < ActiveRecord::Base
     return self.gender_id == MAN ? 'MAN' : 'WOMAN'
   end 
 
+  def to_beyond_user
+    self.beyond_flg = true
+  end 
+ 
+  def beyond_user?
+    return self.beyond_flg ? true : false
+  end
+
   def to_change_gender_id(gender)
     self.gender_id = gender == "male" ? MAN : WOMAN
   end
@@ -30,7 +40,7 @@ class User < ActiveRecord::Base
   def score
     impression = UserImpression.user_id_is(self.id).size
     likes = UserLike.to_user_id_is(self.id).size
-    return (likes/impression).to_f
+    return (likes == 0 || impression == 0) ? 0 : likes/impression
   end
 
   class << self

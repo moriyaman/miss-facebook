@@ -12,6 +12,7 @@ MissFacebook::Application.routes.draw do
   match '/apis/choice_woman' => 'apis#choice_woman', :via => :post
   match '/apis/create_user_impression' => 'apis#create_user_impression', :via => :post  
   match '/apis/change_women' => 'apis#change_women', :via => :get
+  match '/apis/create_score' => 'apis#create_score', :via => :post
 
   #統計ページ
   match '/statistics' => 'statistics#index', :via => :get 

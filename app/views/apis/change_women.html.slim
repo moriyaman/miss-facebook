@@ -1,8 +1,8 @@
-.woman.mrp8.pull-left data-id=@stay_user.id 
+.woman.mrp8.pull-left class="#{@stay_user.beyond_user? ? "bu" : ""}" data-id=@stay_user.id 
   = image_tag @stay_user.user_photo.photo.url(:large), class:'woman-image', size:'345x345' 
   .woman-is-good.text-center
     span.woman-is-good-icon.glyphicon.glyphicon-thumbs-up
-.woman.pull-left data-id=@new_user.id 
+.woman.pull-left class="#{@new_user.beyond_user? ? "bu" : ""}" data-id=@new_user.id 
   = image_tag @new_user.user_photo.photo.url(:large), class:'woman-image', size:'345x345'
   .woman-is-good.text-center
     span.woman-is-good-icon.glyphicon.glyphicon-thumbs-up
