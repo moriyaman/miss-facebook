@@ -9,11 +9,8 @@
     = f.label :nick_name
     = f.text_field :nick_name, class:'form-control', placeholder:'beatiful graphで利用するあなたの名前'
   .form-group
-    = f.label :country_id
-    = f.number_field :country_id, class:'form-control', placeholder:'あなたの母国を選択してください'
-  .form-group
     = f.label :occupation_id
-    = f.number_field :occupation_id, class:'form-control', placeholder:'あなたの職業を選択してください'
+    = f.select :occupation_id, Occupation.for_select, class:'form-control', placeholder:'あなたの職業を選択してください'
   .form-group
     = f.fields_for :user_photo, @user.user_photo || @user.build_user_photo do |user_photo|
        = user_photo.label :photo
