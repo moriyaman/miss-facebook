@@ -57,6 +57,11 @@ header {
     size: 1.8em;
   }
   margin: 5px 40px 0 0;
+
+  a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 .nav > li > a {
   color: #fff;

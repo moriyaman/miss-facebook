@@ -13,10 +13,13 @@ html lang="ja"
     #wrap
 
       header
-        #logo beautiful graph
-        nav
-          ul.nav.nav-pills
-            li = link_to 'My Page', statistics_path if @login_user
+        #logo = link_to 'beautiful graph', root_path
+        - if @login_user
+          nav
+            ul.nav.nav-pills
+              li = link_to 'Mypage', statistics_path
+              li = link_to 'Profile', edit_user_path(@login_user.id)
+              li = link_to 'Logout', logout_path
       
       .container
         = yield
