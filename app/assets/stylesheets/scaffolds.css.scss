@@ -1,8 +1,9 @@
+$bg_color : #ff7171;
 html,body {
   height: 100%;
 }
 body {
-  background-color: #ff7171;
+  background-color: $bg_color;
   color: #fff;
   font-family: verdana, arial, helvetica, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
   font-size: 14px;

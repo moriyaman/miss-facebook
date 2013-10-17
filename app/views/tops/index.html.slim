@@ -1,12 +1,52 @@
-p.mb20.mt40 
-  | 世界で一番の美人はどんな女性だと思いますか？ 
-  br あなたの国で一番の美人はどんな女性だと思いますか？
-p.mb20
-  | あなたが好きな女性はどんな女性だと思いますか？
-  br あなたを好きだと言ってくれる男性はどんな男性だと思いますか？
-p beatiful graphは、世界の美人の「基準」を測るサービスです。
+#info_mask
 
-p.facebook-login
-  | Please login with facebook.
-  = link_to "facebook_login", "/auth/facebook", class:"facebook-login-button"
+  #info_group
+    
+    article#man_info.info
+      .row.mb40.mt80
+        h1.col-md-8 あなたの好きな女性を選んでいくだけ。
+      .row.mb20
+        p.col-md-6
+          | 画面に二人の女性が表示されます。
+          br あなたはその二人のうちのどちらが好みかを選んでいくだけです。
+      .row.mb20
+        p.col-md-7
+          | あなたが選んだ女性は他の多くの男性が選んだ女性とともにランキングされます。
+          br 世界中の「美人」があなたに選ばれるのを待っています。
+      .row
+        .facebook-login Please login with facebook.
+        .facebook-login-button = link_to "facebook_login", "/auth/facebook"
+
+    article#main_info.info
+      .row.mb40.mt80
+        h1.col-md-6 世界の「美人」の基準を測る
+      .row.mb20
+        p.col-md-6
+          | 世界で一番の美人はどんな女性だと思いますか？ 
+          br あなたの国で一番の美人はどんな女性だと思いますか？
+      .row.mb20
+        p.col-md-6
+          | あなたが好きな女性はどんな女性でしょうか？
+          br あなたを好きだと言ってくれる男性はどんな男性でしょうか？
+      .row.mb40
+        p.col-md-7 beatiful graphは、世界の「美人」の基準を測る、全く新しいサービスです。
+      .row
+        .col-md-5
+          button#btn_man_info.btn.btn-primary.btn-lg.col-md-5 男性にできること
+          button#btn_woman_info.btn.btn-danger.btn-lg.col-md-5.col-md-offset-1 女性にできること
+
+    article#woman_info.info
+      .row.mb40.mt80
+        h1.col-md-8 あなたの顔写真を登録するだけ。
+      .row.mb20
+        p.col-md-6
+          | 客観的に自分がどれだけ「美人」かを知りたいと思いませんか？
+          br たとえ自信がなくても、あなたを「好き」と思ってくれる男性がいることを知りたいと思いませんか？
+      .row.mb20
+        p.col-md-6
+          | あなたのとっておきの顔写真を一枚だけ登録してください。
+          br beautiful graphに登録している多くの男性があなたを選んでくれます。
+      .row
+        .facebook-login Please login with facebook.
+        .facebook-login-button = link_to "facebook_login", "/auth/facebook"
 

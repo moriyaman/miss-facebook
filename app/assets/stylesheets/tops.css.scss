@@ -1,26 +1,43 @@
-.top-background {
+body {
   background: url(/assets/top_background.jpg) no-repeat top;
   background-size: cover;
 }
-.top-header {
+header {
   border-bottom: none;
 }
+p {
+  font-size: 16px;
+}
+#info_mask {
+  overflow: hidden;
+  width: 100%;
+}
+#info_group {
+  margin-left: -100%;
+  width: 300%;
+}
+.info {
+  float: left;
+  padding: 0 0 0 20px;
+  width: 33.3%;
+}
 .facebook-login {
+  float: left;
   font: {
     size: 2.2em;
   }
+  margin-top: 64px;
+  padding-left: 15px;
 }
-.facebook-login-button {
+.facebook-login-button a {
   background: url(/assets/sprite.png) no-repeat 0 0;
   display: inline-block;
   height: 0;
-  margin: 20px 0 120px 20px;
+  margin: 0 0 0 20px;
   overflow: hidden;
-  padding: 196px 0 0 0;
-  vertical-align: -208px;
-  width: 256px;
-  
+  padding: 150px 0 0 0;
+  width: 196px;
   &:hover {
-    background-position: -256px 0;
+    background-position: -196px 0;
   }
 }

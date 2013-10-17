@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $("#btn_man_info").click ->
+    $("#info_group").animate({marginLeft:"0"},500)
+  $("#btn_woman_info").click ->
+    $("#info_group").animate({marginLeft:"-200%"},500)
+
