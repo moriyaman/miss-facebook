@@ -1,0 +1,40 @@
+var Woman = function(_self, id){
+  this.dom = _self;
+  this.id = id;
+}
+Woman.prototype = {
+  choice : function(success_func, failed_func){
+    var to_user_id = this.id;
+    $.ajax({
+      type: 'POST',
+      data: {to_user_id: to_user_id},
+      url : '/apis/choice_woman/',
+      success: function(data,status){
+        if(data['result'] == true){
+          if(success_func != undefined){
+            $(success_func);
+          }else{
+            alert('ok');
+          }
+        }else{
+          alert('error');
+        }   
+      },  
+      error : function(){
+        alert('error');   
+      } 
+    });   
+  },
+  create_impression : function(){
+    var user_id = this.id;
+    $.ajax({
+      type: 'POST',
+      data: {user_id: user_id},
+      url : '/apis/create_user_impression/',
+      success: function(data,status){
+        //特に何もしない
+      } 
+    });   
+
+  }
+}

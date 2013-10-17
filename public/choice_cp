@@ -1,0 +1,21 @@
+$(function){
+  baseFunction();
+});
+
+function baseFunction(){
+  var women = [];
+
+  $('.woman').each(function(){
+    var _self = $(this);
+    var user_id = $(this).attr('data-id');
+    var woman = new Woman(_self, user_id);
+    women.push(woman);
+  });
+
+  $('.woman').click(function(){
+    var index = $('.woman').index($(this));
+    var woman = women[index];
+    woman.choice();
+  });
+}
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016063249) do
+ActiveRecord::Schema.define(version: 20131016163610) do
 
   create_table "user_friends", force: true do |t|
     t.integer  "user_uid"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 20131016063249) do
 
   add_index "user_friends", ["friend_uid"], name: "index_user_friends_on_friend_uid", using: :btree
   add_index "user_friends", ["user_uid"], name: "index_user_friends_on_user_uid", using: :btree
+
+  create_table "user_impressions", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_impressions", ["user_id"], name: "index_user_impressions_on_user_id", using: :btree
+
+  create_table "user_likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "to_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_likes", ["to_user_id"], name: "index_user_likes_on_to_user_id", using: :btree
+  add_index "user_likes", ["user_id"], name: "index_user_likes_on_user_id", using: :btree
 
   create_table "user_photos", force: true do |t|
     t.integer  "user_id"

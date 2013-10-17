@@ -6,6 +6,12 @@ MissFacebook::Application.routes.draw do
   #for omniauth 
   match 'auth/:provider/callback' => 'sessions#login', :via => :get
   match '/logout' => 'sessions#logout', :as => :logout, :via => :post
+  match '/choice' => 'choice#index', :via => :get
+  
+  #api
+  match '/apis/choice_woman' => 'apis#choice_woman', :via => :post
+  match '/apis/create_user_impression' => 'apis#create_user_impression', :via => :post  
+
   #match ':controller(/:action(/:id))(.:format)', :via => :get 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
