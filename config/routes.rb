@@ -12,6 +12,10 @@ MissFacebook::Application.routes.draw do
   match '/apis/choice_woman' => 'apis#choice_woman', :via => :post
   match '/apis/create_user_impression' => 'apis#create_user_impression', :via => :post  
 
+  #統計ページ
+  match '/statistics' => 'statistics#index', :via => :get 
+
+
   #match ':controller(/:action(/:id))(.:format)', :via => :get 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

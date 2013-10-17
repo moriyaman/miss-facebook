@@ -22,7 +22,7 @@ refreshWoman = (stay_user_id) ->
     data:
       stay_user_id: stay_user_id
 
-    url: "/apis/ch_woman/"
+    url: "/apis/change_woman/"
     success: (data, status) ->
       if data["result"] is true
         unless success_func is `undefined`

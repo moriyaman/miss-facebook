@@ -9,4 +9,10 @@ class ApisController < ApplicationController
     user_impression = UserImpression.new({user_id: params[:user_id]})
     render json: {result: user_impression.save}
   end
+
+  def change_woman
+    #選択されたユーザはそのまま
+    @stay_user = User.find(params[:stay_user_id])
+    @new_user = User.(params[:stay_user_id])
+  end
 end

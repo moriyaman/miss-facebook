@@ -1,0 +1,4 @@
+.woman data-id=@stay_user.id
+  = image_tag @stay_user.user_photos.last.avatar.url(:large) 
+.woman data-id=@new_user_id 
+  = image_tag @new_user.user_photos.last.avatar.url(:large)
