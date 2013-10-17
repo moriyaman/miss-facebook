@@ -16,13 +16,32 @@ baseFunction = ->
     woman = women[index]
     woman.choice()
 
+refreshWoman = (stay_user_id) ->
+  $.ajax
+    type: "POST"
+    data:
+      stay_user_id: stay_user_id
+
+    url: "/apis/ch_woman/"
+    success: (data, status) ->
+      if data["result"] is true
+        unless success_func is `undefined`
+          $ success_func
+        else
+          alert "ok"
+      else
+        alert "error"
+
+    error: ->
+      alert "error"
+
+
+
+
 $ ->
   baseFunction()
 
-
 #下記は必要無いはず
-
- 
 
 Woman = (_self, id) ->
   @dom = _self
@@ -61,6 +80,4 @@ Woman:: =
       success: (data, status) ->
   
   change: (success_func, failed_func) ->
-
-
-   
+    
