@@ -18,6 +18,7 @@
     = f.fields_for :user_photo, @user.user_photo || @user.build_user_photo do |user_photo|
        = user_photo.label :photo
        = user_photo.file_field :photo
+  #preview_field
   / .form-group
   /   = f.check_box 'test'
   /   = f.label 'test'

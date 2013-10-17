@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require woman
 //= require turbolinks
 //= require_tree .
 //= require twitter/bootstrap

@@ -10,9 +10,10 @@ class ApisController < ApplicationController
     render json: {result: user_impression.save}
   end
 
-  def change_woman
+  def change_women
     #選択されたユーザはそのまま
     @stay_user = User.find(params[:stay_user_id])
-    @new_user = User.(params[:stay_user_id])
+    @new_user = User.has_photo.sort_by{rand}.last
+    render layout: false
   end
 end

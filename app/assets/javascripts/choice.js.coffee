@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 baseFunction = ->
+  window.count = window.count + 1
   women = []
   $(".woman").each ->
     _self = $(this)
@@ -16,26 +17,22 @@ baseFunction = ->
     woman = women[index]
     woman.choice()
 
-refreshWoman = (stay_user_id) ->
+refreshWomen = (stay_user_id) ->
   $.ajax
-    type: "POST"
+    type: "GET"
     data:
       stay_user_id: stay_user_id
 
-    url: "/apis/change_woman/"
-    success: (data, status) ->
-      if data["result"] is true
-        unless success_func is `undefined`
-          $ success_func
-        else
-          alert "ok"
-      else
-        alert "error"
-
+    url: "/apis/change_women"
+    success: (data) ->
+      $('.womanPhotos').html(data); 
+      baseFunction()  
     error: ->
       alert "error"
+  
 
 $ ->
+  window.count = 0
   baseFunction()
 
 #下記は必要無いはず
@@ -58,7 +55,10 @@ Woman:: =
           unless success_func is `undefined`
             $ success_func
           else
-            alert "ok"
+            if window.count >= 5
+              location.href = "http://localhost:3000/statistics"
+            else
+              refreshWomen to_user_id 
         else
           alert "error"
 
@@ -75,6 +75,5 @@ Woman:: =
 
       url: "/apis/create_user_impression/"
       success: (data, status) ->
-  
-  change: (success_func, failed_func) ->
+
     

@@ -6,11 +6,12 @@ MissFacebook::Application.routes.draw do
   #for omniauth 
   match 'auth/:provider/callback' => 'sessions#login', :via => :get
   match '/logout' => 'sessions#logout', :as => :logout, :via => :post
-  match '/choice' => 'choice#index', :via => :get
+  match '/choice' => 'choice#index', :via => :get, :as => :choice
   
   #api
   match '/apis/choice_woman' => 'apis#choice_woman', :via => :post
   match '/apis/create_user_impression' => 'apis#create_user_impression', :via => :post  
+  match '/apis/change_women' => 'apis#change_women', :via => :get
 
   #統計ページ
   match '/statistics' => 'statistics#index', :via => :get 
