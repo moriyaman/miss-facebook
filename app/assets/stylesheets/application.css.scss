@@ -51,9 +51,18 @@ header {
   padding: 10px 20px;
 }
 #logo {
+  float: left;
   font: {
     family: $logo_font;
     size: 1.8em;
+  }
+  margin: 5px 40px 0 0;
+}
+.nav > li > a {
+  color: #fff;
+  padding: 5px 15px;
+  &:hover {
+    color: #555;
   }
 }
 .container {

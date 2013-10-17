@@ -14,6 +14,9 @@ html lang="ja"
 
       header
         #logo beautiful graph
+        nav
+          ul.nav.nav-pills
+            li = link_to 'My Page', statistics_path
       
       .container
         = yield
