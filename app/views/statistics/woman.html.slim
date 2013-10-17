@@ -11,13 +11,13 @@ article.row.col-md-offset-1.col-md-10.mt20
       table.table.mt100
         tr
           th 表示された回数
-          td 202回
+          td #{@looked_user_id.size}回
         tr
           th 選ばれた回数
-          td 143回
+          td #{@selected_user_id.size}回
         tr
           th 選択率
-          td 70.7%
+          td #{100 * @looked_user_id.size/@selected_user_id.size}%
 
   section.row
     .col-md-12
@@ -25,68 +25,19 @@ article.row.col-md-offset-1.col-md-10.mt20
         .col-md-12
           h2
             span.glyphicon.glyphicon-heart
-            | &nbsp;あなたの選んでくれた男性（108人）
+            | &nbsp;あなたの選んでくれた男性（#{@selected_user_id.uniq.size}人）
       .row
-        .col-md-2
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
-        .col-md-2 
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
-        .col-md-2 
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample_male.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | 目利き度 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
+        -User.where(id: @selected_user_id.uniq).each do |user| 
+          .col-md-2
+            = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+            .text-center.user-caption
+              strong.user-caption-name #{user.nick_name}
+              br 
+              | Japan
+              br
+              | 目利き度 #{user.user_score ? user.user_score.score : "-"}
+              br
+              = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
 
   section.row.mt40
     .col-md-12

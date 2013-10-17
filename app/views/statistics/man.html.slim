@@ -5,16 +5,19 @@ article.row.col-md-offset-1.col-md-10.mt20
         span.glyphicon.glyphicon-user
         | &nbsp;あなたの目利き度
       p.your-rank
-        strong 88
+        strong
+          = @login_user.user_score ? @login_user.user_score.score : "-" 
         span.your-rank-unit &nbsp;点
     .col-md-6
       table.table.mt100
         tr
           th 今まで見た女性の数
-          td 104人
+          td
+            = @looked_user_id.size
         tr
           th 選んだ女性の数
-          td 52人
+          td
+            = @selected_user_count 
 
   section.row.mb40
     .col-md-12
@@ -26,68 +29,20 @@ article.row.col-md-offset-1.col-md-10.mt20
         .col-md-12
           h2
             span.glyphicon.glyphicon-heart
-            | &nbsp;あなたの選んだ女性（52人）
+            | &nbsp;あなたの選んだ女性（#{@looked_user_count} 人）
       .row
-        .col-md-2
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-            br
-            span.btn.btn-primary.btn-sm disabled="disabled" メッセージ不可
+        - User.where(id: @selected_user_id).each do |user|
+          .col-md-2
+            = image_tag user.user_photo.photo.url(:large), class:"user-list-image"
+            .text-center.user-caption
+              strong.user-caption-name 
+                = user.nick_name
+              br 
+              | Japan
+              br
+              | Rank 100
+              br
+              = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
 
   section.row.mb40
     .col-md-12

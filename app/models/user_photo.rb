@@ -9,7 +9,7 @@ class UserPhoto < ActiveRecord::Base
     },
     :convert_options => {
       :thumb => "-gravity Center -crop 50x50+0+0",
-      :large => "-gravity Center -crop 500x500+0+0",
+      :large => "-gravity Center -crop 500x500+0+0"
     }
   }
 

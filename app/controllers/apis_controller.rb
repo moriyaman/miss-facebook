@@ -6,7 +6,7 @@ class ApisController < ApplicationController
   end
 
   def create_user_impression
-    user_impression = UserImpression.new({user_id: params[:user_id]})
+    user_impression = @login_user.user_impressions.build({to_user_id: params[:user_id]})
     render json: {result: user_impression.save}
   end
 

@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   include UserRank
 
   has_many :user_likes
+  has_many :user_impressions
+  
+  has_one :user_score
   has_one :user_photo
   accepts_nested_attributes_for :user_photo
   
@@ -9,8 +12,8 @@ class User < ActiveRecord::Base
   WOMAN = 2
 
   scope :uid_is, ->uid{where(uid: uid)}
-  scope :has_photo, joins(:user_photo).where('photo_file_name is not null') 
-  scope :women, where(gender_id: WOMAN)
+  scope :has_photo, ->{joins(:user_photo).where('photo_file_name is not null')}
+  scope :women, ->{where(gender_id: WOMAN)}
 
   def man?
     return self.gender_id == MAN ? true : false
@@ -26,7 +29,7 @@ class User < ActiveRecord::Base
 
   def score
     impression = UserImpression.user_id_is(self.id).size
-    likes = User.to_user_id_is.size
+    likes = UserLike.to_user_id_is(self.id).size
     return (likes/impression).to_f
   end
 
