@@ -29,7 +29,7 @@ article.row.col-md-offset-1.col-md-10.mt20
         .col-md-12
           h2
             span.glyphicon.glyphicon-heart
-            | &nbsp;あなたの選んだ女性（#{@looked_user_count} 人）
+            | &nbsp;あなたの選んだ女性（#{@selected_user_count} 人）
       .row
         - User.where(id: @selected_user_id).each do |user|
           .col-md-2

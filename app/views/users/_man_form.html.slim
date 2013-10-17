@@ -1,0 +1,18 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      p = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+  .form-group
+    = f.label :nick_name
+    = f.text_field :nick_name, class:'form-control', placeholder:'beatiful graphで利用するあなたの名前'
+  .form-group
+    = f.label :occupation_id
+    = f.select :occupation_id, Occupation.for_select, {include_blank:'あなたの職業を選択してください'}, {class:'form-control'}
+  .form-group
+    = f.check_box :friend_allow_flg
+    = f.label '友達申請を受け付ける'
+  .form-group
+    = f.submit 'プロフィールを保存して、あなたの好みの女性を探しに行く', class:'btn btn-primary btn-lg btn-submit mt20'

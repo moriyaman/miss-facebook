@@ -16,7 +16,7 @@ html lang="ja"
         #logo beautiful graph
         nav
           ul.nav.nav-pills
-            li = link_to 'My Page', statistics_path
+            li = link_to 'My Page', statistics_path if @login_user
       
       .container
         = yield
