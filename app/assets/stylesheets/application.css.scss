@@ -31,7 +31,11 @@ $logo_font: 'Montaga', serif;
 .mb40 {@include mb();}
 .mb80 {@include mb(80);}
 .mb120 {@include mb(120);}
+.mt20 {@include mt(20);}
 .mt40 {@include mt();}
+.mt80 {@include mt(80);}
+.mt100 {@include mt(100);}
+.mt120 {@include mt(120);}
 .mrp4 {@include mrp(4%);}
 .mrp6 {@include mrp(6%);}
 .mrp8 {@include mrp(8%);}
