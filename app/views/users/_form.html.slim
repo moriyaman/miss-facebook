@@ -15,7 +15,7 @@
     = f.label :occupation_id
     = f.number_field :occupation_id, class:'form-control', placeholder:'あなたの職業を選択してください'
   .form-group
-    = f.fields_for :user_photos, @user.user_photos do |user_photo|
+    = f.fields_for :user_photos do |user_photo|
       = user_photo.label :avator
       = user_photo.file_field :avatar
   / .form-group
