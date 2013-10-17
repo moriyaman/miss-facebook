@@ -19,7 +19,7 @@ html lang="ja"
             ul.nav.nav-pills
               li = link_to 'Mypage', statistics_path
               li = link_to 'Profile', edit_user_path(@login_user.id)
-              li = link_to 'Logout', logout_path
+              li = link_to 'Logout', logout_path, method: :post
       
       .container
         = yield
