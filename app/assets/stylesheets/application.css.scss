@@ -20,7 +20,11 @@ $logo_font: 'Montaga', serif;
 
 // mixin
 @mixin mb($margin:40) {margin-bottom: $margin + px;}
+@mixin ml($margin:40) {margin-left: $margin + px;}
+@mixin mr($margin:40) {margin-right: $margin + px;}
 @mixin mt($margin:40) {margin-top: $margin + px;}
+@mixin mlp($margin:10%) {margin-left: $margin;}
+@mixin mrp($margin:10%) {margin-right: $margin;}
 
 // parts
 .mb20 {@include mb(20);}
@@ -28,6 +32,8 @@ $logo_font: 'Montaga', serif;
 .mb80 {@include mb(80);}
 .mb120 {@include mb(120);}
 .mt40 {@include mt();}
+.mrp6 {@include mrp(6%);}
+.mrp10 {@include mrp();}
 
 // selectors
 header {
