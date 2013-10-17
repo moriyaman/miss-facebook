@@ -61,12 +61,16 @@ ActiveRecord::Schema.define(version: 20131016163610) do
     t.integer  "gender_id"
     t.integer  "occupation_id"
     t.string   "mail"
-    t.integer  "uid",               limit: 8
-    t.boolean  "friend_allow_flg",                   default: false
-    t.boolean  "closed_flg",                         default: false
-    t.text     "self_introduction", limit: 16777215
+    t.integer  "uid",                 limit: 8
+    t.boolean  "friend_allow_flg",                     default: false
+    t.boolean  "closed_flg",                           default: false
+    t.text     "self_introduction",   limit: 16777215
     t.string   "access_token"
     t.datetime "oauth_expires_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

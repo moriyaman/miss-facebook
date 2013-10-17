@@ -1,14 +1,19 @@
 class User < ActiveRecord::Base
 
-  has_many :user_photos
   has_many :user_likes
-  accepts_nested_attributes_for :user_photos
+
+  has_attached_file :avatar, {
+    :styles => {
+       :medium => ['100x100#', :png], 
+       :large => ['1000x1000>', :png]
+    }
+  }
   
   MAN = 1
   WOMAN = 2
 
   scope :uid_is, ->uid{where(uid: uid)}
-
+  scope :have_photo, where('avatar_file_name is not null') 
   
   def gender
     return self.gender_id == MAN ? 'MAN' : 'WOMAN'

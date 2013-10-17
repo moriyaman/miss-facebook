@@ -35,9 +35,6 @@ refreshWoman = (stay_user_id) ->
     error: ->
       alert "error"
 
-
-
-
 $ ->
   baseFunction()
 
