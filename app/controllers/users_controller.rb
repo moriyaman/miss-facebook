@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user.user_photos.build
   end
 
   
