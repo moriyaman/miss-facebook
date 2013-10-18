@@ -14,7 +14,11 @@ class ApisController < ApplicationController
     #選択されたユーザはそのまま
     @stay_user = User.find(params[:stay_user_id])
     @new_user = User.women.has_photo.sort_by{rand}.last
-    @stay_user.score >= @new_user.score ? @stay_user.to_beyond_user : @new_user.to_beyond_user
+    stay_user_score = @stay_user.score
+    new_user_score = @new_user.score
+    @stay_user.update_score(stay_user_score)
+    @new_user.update_score(new_user_score)
+    stay_user_score >= new_user_score ? @stay_user.to_beyond_user : @new_user.to_beyond_user
     render layout: false
   end
 

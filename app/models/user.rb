@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     return (likes == 0 || impression == 0) ? 0 : likes/impression
   end
 
+  def friend_allow?
+    return self.friend_allow_flg ? true : false
+  end
+
   class << self
     def from_omniauth(auth)
       uid_is(auth.uid).first_or_initialize.tap do |user|

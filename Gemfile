@@ -31,6 +31,10 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'figaro'
 
+gem 'redis'
+gem 'redis-store'
+gem 'redis-rails'
+
 gem 'paperclip'
 
 group :doc do

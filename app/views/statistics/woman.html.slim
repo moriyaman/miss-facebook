@@ -5,7 +5,7 @@ article.row.col-md-offset-1.col-md-10.mt20
         span.glyphicon.glyphicon-user
         | &nbsp;あなたの総合ランク
       p.your-rank
-        strong 146
+        strong #{@login_user.rank}
         span.your-rank-unit &nbsp;位
     .col-md-6
       table.table.mt100
@@ -37,64 +37,10 @@ article.row.col-md-offset-1.col-md-10.mt20
               br
               | 目利き度 #{user.user_score ? user.user_score.score : "-"}
               br
-              = link_to 'メッセージを送る', '/', class:'btn btn-primary btn-sm'
-
-  section.row.mt40
-    .col-md-12
-      .row
-        .col-md-12
-          h2 
-            span.glyphicon.glyphicon-sort-by-order
-            | &nbsp;あなたのランキング
-      .row
-        .col-md-2
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
-        .col-md-2 
-          = image_tag '/assets/sample.jpg', class:"user-list-image"
-          .text-center.user-caption
-            strong.user-caption-name Jesica
-            br 
-            | Japan
-            br
-            | Rank 100
+              - if user.friend_allow? 
+                = link_to 'メッセージを送る', "https://www.facebook.com/profile.php?id=#{user.uid}", class:'btn btn-primary btn-sm'
+              - else
+                span.btn.btn-primary.btn-sm メッセージ不可
 
   section.row.mt40
     .col-md-12

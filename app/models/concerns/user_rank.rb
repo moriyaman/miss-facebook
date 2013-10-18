@@ -4,6 +4,12 @@ module UserRank
       redis.zadd('ranking', user.score, user.id)
     end
   end
+  
+  def self.destroy
+    User.find_each do |user|
+      redis.zrem('ranking', user.id)
+    end
+  end
  
   # 現在の順位
   def rank
