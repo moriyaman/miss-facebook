@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
   
   end
 
+  def photo
+    return self.user_photo ? self.user_photo.photo.url(:large) : self.image_url
+  end
+
   class << self
     def from_omniauth(auth)
       uid_is(auth.uid).first_or_initialize.tap do |user|
@@ -67,6 +71,7 @@ class User < ActiveRecord::Base
         user.access_token = auth.credentials.token
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.mail = auth.info.email if auth.info.email
+        user.image_url = auth.info.image.sub(/square/,"large")
         birthday = auth.extra.raw_info.birthday.split("/") unless auth.extra.raw_info.birthday.blank?
         user.birthday = Time.parse("#{birthday[1]}/#{birthday[0]}/#{birthday[2]}") unless auth.extra.raw_info.birthday.blank?
         user.to_change_gender_id(auth.extra.raw_info.gender) unless auth.extra.raw_info.gender.blank?

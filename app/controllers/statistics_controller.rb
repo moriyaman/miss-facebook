@@ -21,6 +21,6 @@ class StatisticsController < ApplicationController
   end
  
   def change_template
-    render action: @login_user.man? ? 'woman' : 'woman' 
+    render action: @login_user.man? ? 'man' : 'woman' 
   end
 end

@@ -29,7 +29,7 @@ article.row.col-md-offset-1.col-md-10.mt20
       .row
         -User.where(id: @selected_user_id.uniq).each do |user| 
           .col-md-2
-            = image_tag '/assets/sample_male.jpg', class:"user-list-image"
+            = image_tag user.photo, class:"user-list-image"
             .text-center.user-caption
               strong.user-caption-name #{user.nick_name}
               br 

@@ -12,7 +12,7 @@
     = f.label :occupation_id
     = f.select :occupation_id, Occupation.for_select, {include_blank:'あなたの職業を選択してください'}, {class:'form-control'}
   - if @login_user.user_photo
-    = image_tag @login_user.user_photo.photo.url(:large), class:'woman-image', size:'345x345' 
+    = image_tag @login_user.photo, class:'woman-image', size:'345x345' 
   .form-group
     = f.fields_for :user_photo, @user.user_photo || @user.build_user_photo do |user_photo|
       = user_photo.label :photo
