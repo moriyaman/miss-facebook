@@ -47,6 +47,19 @@ class User < ActiveRecord::Base
     return self.friend_allow_flg ? true : false
   end
 
+  def statistics_by_age
+    statistics = {}
+    selected_user_id = self.man? ? self.user_likes.pluck('to_user_id').uniq : UserLike.to_user_id_is(self.id).pluck(:user_id).uniq 
+  end
+  
+  def statistics_by_country
+  
+  end 
+ 
+  def statistics_by_occupation
+  
+  end
+
   class << self
     def from_omniauth(auth)
       uid_is(auth.uid).first_or_initialize.tap do |user|
