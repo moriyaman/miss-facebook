@@ -11,8 +11,9 @@
   .form-group
     = f.label :occupation_id
     = f.select :occupation_id, Occupation.for_select, {include_blank:'あなたの職業を選択してください'}, {class:'form-control'}
-  .form-group
-    = f.check_box :friend_allow_flg
-    = f.label '友達申請を受け付ける'
+  .checkbox
+    = f.label :friend_allow_flg
+      = f.check_box :friend_allow_flg
+      | 女性からのfacebookメッセージを受け付ける
   .form-group
     = f.submit 'プロフィールを保存して、あなたの好みの女性を探しに行く', class:'btn btn-primary btn-lg btn-submit mt20'

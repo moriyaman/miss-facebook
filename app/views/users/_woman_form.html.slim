@@ -18,11 +18,13 @@
       = user_photo.label :photo
       = user_photo.file_field :photo
       #preview_field.text-center.mt10
-  .form-group
-    = f.check_box :friend_allow_flg
-    = f.label '友達申請を受け付ける'
-  .form-group
-    = f.check_box :closed_flg
-    = f.label '友達の友達には公開しない'
+  .checkbox
+    = f.label :friend_allow_flg
+      = f.check_box :friend_allow_flg
+      | 男性からのfacebookメッセージを受け付ける
+  .checkbox
+    = f.label :closed_flg
+      = f.check_box :closed_flg
+      | 友達の友達まで非公開にする
   .form-group
     = f.submit 'プロフィールを保存して、男性からのいいねを待つ', class:'btn btn-primary btn-lg btn-submit mt20'

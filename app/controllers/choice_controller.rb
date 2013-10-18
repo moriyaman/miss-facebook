@@ -1,7 +1,8 @@
 class ChoiceController < ApplicationController
 
   def index
-    @stay_user = @login_user.user_likes.exists? ? @login_user.user_likes.last.user : User.women.has_photo.sort_by{rand}.first
+    #@stay_user = @login_user.user_likes.exists? ? @login_user.user_likes.last.user : User.women.has_photo.sort_by{rand}.first
+    @stay_user = User.women.has_photo.sort_by{rand}.last
     @new_user = User.women.has_photo.sort_by{rand}.last
     stay_user_score = @stay_user.score
     new_user_score = @new_user.score
